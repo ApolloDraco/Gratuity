@@ -3,27 +3,23 @@
 */
 
 import java.util.Scanner;
-	
 
-	public class Gratuity {
-		public static void main(String[] args) {
-      // Create new Scanner object
-			Scanner input = new Scanner(System.in);
-	
+public class Gratuity {
+   public static void main(String[] args) {
+      Scanner input = new Scanner(System.in);
 
-			// Prompt the user to enter the subtotal and the gratuity rate
-			System.out.print("Enter the subtotal and a gratuity rate: ");
-			double subtotal = input.nextDouble();
-			double gratuityRate = input.nextDouble();
-	
+      System.out.print("Enter the subtotal and a gratuity rate: ");
+      double subtotal = input.nextDouble();
+      double gratuityRate = input.nextDouble();
 
-			// Calculate gratuity and total
-			double gratuity = subtotal * (gratuityRate / 100);
-			double total = subtotal + gratuity;
-	
+      if (subtotal <= 0 || gratuityRate <= 0) {
+         System.out.println("Invalid input. Subtotal and gratuity rate must be positive.");
+         return;
+      }
 
-			// Display results
-			System.out.println("The gratuity is $" + gratuity +
-				" and total is $" + total);
-		}
-	}
+      double gratuity = subtotal * (gratuityRate / 100);
+      double total = subtotal + gratuity;
+
+      System.out.printf("The gratuity is $%.2f and total is $%.2f", gratuity, total);
+   }
+}
